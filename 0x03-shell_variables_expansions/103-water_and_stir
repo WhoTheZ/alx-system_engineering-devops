@@ -1,18 +1,4 @@
 #!/bin/bash
+water=$WATER; stir=$STIR; water_dec=$(echo "$water" | tr 'abcdefghijklmnopqrstuvwxyz' '0123456789' | tr -d '\n' | tr -d '\r'); stir_dec=$(echo "$stir" | tr 'abcdefghijklmnopqrstuvwxyz' '0123456789' | tr -d '\n' | tr -d '\r'); sum_dec=$((water_dec + stir_dec)); echo "${sum_dec:0:8}"; echo "${sum_dec:8}"
 
-water=$WATER
-stir=$STIR
-
-
-water_dec=$(echo "$water" | tr 'abcdefghijklmnopqrstuvwxyz' '0123456789' | sed 's/^0*//')
-stir_dec=$(echo "$stir" | tr 'abcdefghijklmnopqrstuvwxyz' '0123456789' | sed 's/^0*//')
-
-
-sum_dec=$(($water_dec + $stir_dec))
-
-
-sum_bestchol=$(echo "obase=bestchol; $sum_dec" | bc)
-
-
-echo "$sum_bestchol"
 
