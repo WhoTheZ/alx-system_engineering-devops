@@ -1,4 +1,2 @@
 #!/bin/bash
-water=$WATER; stir=$STIR; water_dec=$(echo "$water" | tr 'abcdefghijklmnopqrstuvwxyz' '0123456789' | tr -d '\n' | tr -d '\r'); stir_dec=$(echo "$stir" | tr 'abcdefghijklmnopqrstuvwxyz' '0123456789' | tr -d '\n' | tr -d '\r'); sum_dec=$((water_dec + stir_dec)); echo "${sum_dec:0:8}"; echo "${sum_dec:8}"
-
-
+w=$WATER s=$STIR; echo $((0x$(echo $w$s | tr 'a-z' '0123456789')/9)) | awk '{printf "%.9s\n%.9s\n",substr($0,1,9),substr($0,10)}'
